@@ -1,13 +1,22 @@
 # RPI-cluster-with-K8s
-What to do when you have too many RPIs lying around
+What to do when you have too many RPIs lying around  
+
+The cluster contains of one rpi that acts as the router will the other three builds the cluster.  
+The setup of the router and cluster nodes are done via Ansible playbooks.  
 
 
+     
+            
+
+## Connect everything
+One RPI will be the router that is connected via wifi to the network/internet.   
+All RPIs are connected to a isolated/dedicated switch that will handle the traffic between the nodes.    
 ```
             / --> rpi3
 wifi --> rpi3 --> rpi2
             \ --> rpi4
-```            
-            
+```
+
 
 ## Prepare the sd-cards
 - Create the sd cards  
