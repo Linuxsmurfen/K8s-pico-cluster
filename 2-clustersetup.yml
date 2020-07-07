@@ -1,0 +1,9 @@
+---
+- name: Raspberry Pi self configuration
+  #hosts: master,worker2,worker4
+  hosts: cluster
+  become: yes
+  roles:
+    - common
+    - node
+    #- reboot

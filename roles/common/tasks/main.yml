@@ -1,0 +1,33 @@
+---
+
+# Gather facts specific to the Raspberry Pi platform
+- include: raspi-facts.yml
+- include: linux-facts.yml
+
+# Basic hostname setup
+- name: Get MAC address
+  debug: 
+    msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+  tags:
+    - raspi
+    - sw
+
+- name: store MAC address
+  set_fact:
+    my_macaddr: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+  tags:
+    - raspi
+    - sw
+
+- name: store system configuration
+  set_fact:
+    myconfig: "{{ macaddrs[my_macaddr] }}"
+  tags:
+    - raspi
+    - sw
+
+
+# Tasks
+- include: services.yml
+- include: raspi-config.yml
+- include: software.yml

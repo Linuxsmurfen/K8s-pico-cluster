@@ -1,0 +1,14 @@
+---
+
+# No need to wifi on cluster nodes
+- name: Disable wifi
+  lineinfile:
+    path: /boot/config.txt
+    line: dtoverlay=pi3-disable-wifi
+
+# Stop wifi service
+- name: Stop wifi
+  systemd:
+    name: wpa_supplicant
+    enabled: no
+    state: stopped

@@ -1,0 +1,81 @@
+---
+
+macaddrs:
+    b8:27:eb:27:a9:1f:
+        hostname: "router"
+        domain: "k8s.ip"
+        locale: "sv_SE.UTF-8"
+        timezone: "Europe/Stockholm"
+        xkblayout: "se"
+        wifi_country: "SE"
+        enable_gui: False
+        enable_autologin: False
+        enable_bootwait: False
+        enable_bootsplash: False
+        enable_camera: False
+        enable_vnc: False
+        enable_spi: False
+        enable_i2c: False
+        enable_serial: False
+        enable_serial_hw: False
+        enable_onewire: False
+        enable_rgpio: False
+        extra_software:
+          - "screen"
+
+    b8:27:eb:e0:d4:8c:
+        hostname: "master"
+        domain: "k8s.ip"
+        locale: "sv_SE.UTF-8"
+        timezone: "Europe/Stockholm"
+        xkblayout: "se"
+        wifi_country: "SE"
+        enable_gui: False
+        enable_autologin: False
+        enable_bootwait: False
+        enable_bootsplash: False
+        enable_camera: False
+        enable_vnc: False
+        enable_spi: False
+        enable_i2c: False
+        enable_serial: False
+        enable_onewire: False
+        enable_rgpio: False
+
+    b8:27:eb:ed:09:cf:
+        hostname: "worker2"
+        domain: "k8s.ip"
+        locale: "sv_SE.UTF-8"
+        timezone: "Europe/Stockholm"
+        xkblayout: "se"
+        wifi_country: "SE"
+        enable_gui: False
+        enable_autologin: False
+        enable_bootwait: False
+        enable_bootsplash: False
+        enable_camera: False
+        enable_vnc: False
+        enable_spi: False
+        enable_i2c: False
+        enable_serial: False
+        enable_onewire: False
+        enable_rgpio: False
+
+    dc:a6:32:05:5f:71:
+        hostname: "worker4"
+        domain: "k8s.ip"
+        locale: "sv_SE.UTF-8"
+        timezone: "Europe/Stockholm"
+        xkblayout: "se"
+        wifi_country: "SE"
+        enable_gui: False
+        enable_autologin: False
+        enable_bootwait: False
+        enable_bootsplash: False
+        enable_camera: False
+        enable_vnc: False
+        enable_spi: False
+        enable_i2c: False
+        enable_serial: False
+        enable_onewire: False
+        enable_rgpio: False

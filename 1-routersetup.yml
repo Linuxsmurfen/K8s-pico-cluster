@@ -1,0 +1,8 @@
+---
+- name: Raspberry Pi self configuration
+  hosts: localhost
+  become: yes
+  connection: local
+  roles:
+    - common
+    - router

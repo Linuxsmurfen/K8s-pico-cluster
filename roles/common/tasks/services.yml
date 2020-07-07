@@ -1,0 +1,35 @@
+---
+
+# Disable services
+
+- name: Disable hdmi to save power
+  command: "/opt/vc/bin/tvservice -o"
+
+- name: Disable bluetooth
+  systemd:
+    name: bluetooth
+    enabled: no
+    state: stopped
+
+- name: Disable avahi-daemon
+  systemd:
+    name: avahi-daemon
+    enabled: no
+    state: stopped
+
+- name: Disable triggerhappy
+  systemd:
+    name: triggerhappy
+    enabled: no
+    state: stopped
+
+- name: Disable audio
+  replace:
+    path: /boot/config.txt
+    regexp: '^dtparam=audio=on'
+    replace: '#dtparam=audio=on'
+
+- name: Disable bluetooth
+  lineinfile:
+    path: /boot/config.txt
+    line: dtoverlay=pi3-disable-bt

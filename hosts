@@ -1,0 +1,20 @@
+[pi]
+router ansible_host=127.0.0.1 ansible_user=pi
+master ansible_host=10.0.0.50 ansible_user=pi
+worker4 ansible_host=10.0.0.60 ansible_user=pi
+worker2 ansible_host=10.0.0.61 ansible_user=pi
+
+[router]
+router
+
+[cluster]
+master
+worker4
+worker2
+
+[masters]
+master
+
+[workers]
+worker4
+worker2
