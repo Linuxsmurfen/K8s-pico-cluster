@@ -6,7 +6,12 @@ Build a kubernetes cluster using rpi with ansible!
 The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
 The setup of the router and cluster nodes are done via Ansible playbooks.  
   
-            
+  
+Inspired by..  
+https://www.shogan.co.uk/kubernetes/building-a-raspberry-pi-kubernetes-cluster-part-1-routing/  
+https://downey.io/blog/create-raspberry-pi-3-router-dhcp-server/  
+http://www.lpenz.org/articles/ansiblerpi/index.html  
+
 
 ## Connect everything
 One RPI will be the router that is connected via wifi to the network/internet.   
