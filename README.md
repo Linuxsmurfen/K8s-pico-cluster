@@ -46,12 +46,14 @@ network={
    
 ## Router node setup
 
-Install Ansible  
+Install Ansible and Git 
 sudo apt-get update  
-sudo apt install ansible  
+sudo apt install ansible git 
 
 ssh-keygen  
 ssh-copy-id localhost  
+
+git clone .. 
 
 ansible-playbook 1-routersetup.yml  
 reboot  
