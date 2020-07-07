@@ -1,11 +1,11 @@
 # RPI-cluster-with-K8s
-What to do when you have too many RPIs lying around  
+What to do when you have too many RPIs lying around and want to learn kubernetes and ansible?  
+  
+Build a kubernetes cluster using rpi with ansible!  
 
-The cluster contains of one rpi that acts as the router will the other three builds the cluster.  
+The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
 The setup of the router and cluster nodes are done via Ansible playbooks.  
-
-
-     
+  
             
 
 ## Connect everything
@@ -25,7 +25,7 @@ wifi --> rpi3 --> rpi2
 - Enable ssh  
 ``` touch  ../boot/ssh ```
    
-- For the router node create   
+- For the router node create  
 ``` ../boot/wpa_supplicant.conf ```  
 
 ```
