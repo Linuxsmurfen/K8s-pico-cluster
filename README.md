@@ -46,7 +46,7 @@ network={
    
 ## Router node setup
 
-Install Ansible and Git 
+Install Ansible and Git   
 sudo apt-get update  
 sudo apt install ansible git 
 
@@ -68,9 +68,13 @@ ssh-copy-id pi@10.0.0.50
 ssh-copy-id pi@10.0.0.60
 ssh-copy-id pi@10.0.0.61
 ```  
-
+Verify connectivity  
 ansible cluster -m ping  
+
+Configure the nodes  
 ansible-playbook 2-clustersetup.yml  
+
+Restart the nodes  
 reboot  
 
 
