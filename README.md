@@ -26,4 +26,26 @@ wifi --> rpi3 --> rpi2
    }
   ---
    
-2. 
+2. Router node setup
+
+  sudo apt-get update
+  sudo apt install ansible
+
+  ssh-keygen
+  ssh-copy-id localhost
+
+  ansible-playbook 1-routersetup.yml
+reboot
+
+  cat /var/lib/misc/dnsmasq.leases
+
+3. Cluster node setup
+  ssh-copy-id pi@10.0.0.50
+  ssh-copy-id pi@10.0.0.60
+  ssh-copy-id pi@10.0.0.61
+
+ansible cluster -m ping
+ansible-playbook 2-clustersetup.yml
+reboot
+
+
