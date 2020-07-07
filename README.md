@@ -2,19 +2,20 @@
 What to do when you have too many RPIs lying around
 
 
+```
             / --> rpi3
 wifi --> rpi3 --> rpi2
             \ --> rpi4
-            
+```            
             
 
 1. Prepare the sd-cards
-    sudo dd bs=4M if=2020-05-27-raspios-buster-lite-armhf.img of=/dev/sdXX status=progress conv=fsync
+    ``` sudo dd bs=4M if=2020-05-27-raspios-buster-lite-armhf.img of=/dev/sdXX status=progress conv=fsync ```
     
    - Enable ssh
    ``` touch  ../boot/ssh ```
    
-   - For the router node add 
+   - For the router node create 
    ``` ../boot/wpa_supplicant.conf ```
    ```
    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -29,6 +30,7 @@ wifi --> rpi3 --> rpi2
    
 2. Router node setup
 
+  Install Ansible
   sudo apt-get update
   sudo apt install ansible
 
