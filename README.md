@@ -1,17 +1,10 @@
-# RPI-cluster-with-K8s
+# A Raspberry π cluster with Kubernetes
 What to do when you have too many RPIs lying around and want to learn kubernetes and ansible?  
   
-Build a kubernetes cluster using rpi with ansible!  
+Build a cluster with ansible :-)
 
-The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
-The setup of the router and cluster nodes are done via Ansible playbooks.  
-  
-  
-Inspired by..  
-https://www.shogan.co.uk/kubernetes/building-a-raspberry-pi-kubernetes-cluster-part-1-routing/  
-https://downey.io/blog/create-raspberry-pi-3-router-dhcp-server/  
-http://www.lpenz.org/articles/ansiblerpi/index.html
-https://github.com/rak8s/rak8s
++++The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
+---The setup of the router and cluster nodes are done via Ansible playbooks.  
 
 
 ## Connect everything
@@ -31,7 +24,7 @@ wifi --> rpi3 --> rpi2
 - Enable ssh  
 ``` touch  ../boot/ssh ```
    
-- For the router node create  
+- Enable wifi access on the 'router' node  
 ``` ../boot/wpa_supplicant.conf ```  
 
 ```
@@ -63,19 +56,29 @@ cat /var/lib/misc/dnsmasq.leases
 
 ## Cluster node setup
 
-Copy ssh keys to the cluster nodes  
+Copy the ssh keys to the cluster nodes  
 ```
 ssh-copy-id pi@10.0.0.50
 ssh-copy-id pi@10.0.0.60
 ssh-copy-id pi@10.0.0.61
 ```  
 Verify connectivity  
-ansible cluster -m ping  
+```ansible cluster -m ping```
 
 Configure the nodes  
-ansible-playbook 2-clustersetup.yml  
+```ansible-playbook 2-clustersetup.yml``` 
 
 Restart the nodes  
 reboot  
 
+## Kubernetes setup
+Time to setup the fun stuff.  
+```git clone https://github.com/rak8s/rak8s```
+modify the ./inventory file  
 
+
+## References & Credits
+-https://www.shogan.co.uk/kubernetes/building-a-raspberry-pi-kubernetes-cluster-part-1-routing/  
+-https://downey.io/blog/create-raspberry-pi-3-router-dhcp-server/  
+-http://www.lpenz.org/articles/ansiblerpi/index.html  
+-https://github.com/rak8s/rak8s  
