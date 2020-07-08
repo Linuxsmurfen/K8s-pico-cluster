@@ -3,8 +3,8 @@ What to do when you have too many RPIs lying around and want to learn kubernetes
   
 Build a cluster with ansible :-)
 
-+++The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
----The setup of the router and cluster nodes are done via Ansible playbooks.  
+- The cluster contains of one rpi that acts as the router while the other three builds the cluster.  
+- The setup of the router and cluster nodes are done via Ansible playbooks.  
 
 
 ## Connect everything
@@ -40,14 +40,22 @@ network={
    
 ## Router node setup
 
-Install Ansible and Git   
+Logon to the router node and install Ansible and Git
+```
 sudo apt-get update  
-sudo apt install ansible git 
+sudo apt install ansible git  
+``` 
 
 ssh-keygen  
 ssh-copy-id localhost  
 
-git clone .. 
+git clone ..  
+  
+Modify the MAC addresses in
+```
+../roles/router/files/dnsmasq.conf  
+../roles/common/vars/main.yml  
+```
 
 ansible-playbook 1-routersetup.yml  
 reboot  
@@ -72,8 +80,8 @@ Restart the nodes
 reboot  
 
 ## Kubernetes setup
-Time to setup the fun stuff.  
-```git clone https://github.com/rak8s/rak8s```
+Time to setup the fun stuff.    
+```git clone https://github.com/rak8s/rak8s```  
 modify the ./inventory file  
 
 
