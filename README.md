@@ -40,16 +40,14 @@ network={
    
 ## Router node setup
 
-Logon to the router node and install Ansible and Git
+Logon to the router node as user 'pi' and install Ansible and Git
 ```
 sudo apt-get update  
 sudo apt install ansible git  
 ``` 
 
-ssh-keygen  
-ssh-copy-id localhost  
-
-git clone ..  
+Download the ansible scripts  
+``` git clone ..  ``` 
   
 Modify the MAC addresses in
 ```
@@ -57,10 +55,20 @@ Modify the MAC addresses in
 ../roles/common/vars/main.yml  
 ```
 
-ansible-playbook 1-routersetup.yml  
-reboot  
+Generate ssh keys
+```
+ssh-keygen  
+ssh-copy-id localhost  
+```
 
-cat /var/lib/misc/dnsmasq.leases  
+Install  
+```ansible-playbook 1-routersetup.yml```  
+reboot
+
+Verify that the nodes gets an IP via DHCP
+```cat /var/lib/misc/dnsmasq.leases```
+
+
 
 ## Cluster node setup
 
