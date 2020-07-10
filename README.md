@@ -92,6 +92,16 @@ Time to setup the fun stuff.
 ```git clone https://github.com/rak8s/rak8s```  
 modify the ./inventory file  
 
+## Bill of materials
+
+| Description | Link |
+| --- | --- |
+| 4 Raspberry PI's version 2,3,4 | https://www.raspberrypi.org/products |
+| Network switch with 4 ports | For example D-Link DGS-105 |
+| Power supply | For example a 60w 6 port charger |
+| 4 network cables | |
+| 4 power cables | |
+
 
 ## References & Credits
 -https://www.shogan.co.uk/kubernetes/building-a-raspberry-pi-kubernetes-cluster-part-1-routing/  
