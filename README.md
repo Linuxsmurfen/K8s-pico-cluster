@@ -11,10 +11,16 @@ Build a cluster with ansible :-)
 One RPI will be the router that is connected via wifi to the network/internet.   
 All RPIs are connected to a isolated/dedicated switch that will handle the traffic between the nodes.    
 ```
-            / --> rpi3
-wifi --> rpi3 --> rpi2
-            \ --> rpi4
+          / --> B
+wifi --> A  --> C
+          \ --> D
 ```
+| Node | Type | Hostname | Ethernet | Wifi
+| --- | --- | --- | --- | --- |
+| A | rpi3 | router | 10.0.0.1 | DHCP |
+| B | rpi3 | master | 10.0.0.50 | |
+| C | rpi4 | worker4 | 10.0.0.60 | |
+| D | rpi2 | worker2 | 10.0.0.61 | |
 
 
 ## Prepare the sd-cards
