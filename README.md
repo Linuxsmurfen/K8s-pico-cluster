@@ -47,7 +47,7 @@ sudo apt install ansible git
 ``` 
 
 Download the ansible scripts  
-``` git clone ..  ``` 
+``` git clone https://github.com/Linuxsmurfen/Pico-k8s-cluster.git  ``` 
   
 Modify the MAC addresses in
 ```
