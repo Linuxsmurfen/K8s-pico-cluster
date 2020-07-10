@@ -97,6 +97,7 @@ modify the ./inventory file
 | Description | Link |
 | --- | --- |
 | 4 Raspberry PI's version 2,3,4 | https://www.raspberrypi.org/products |
+| 4 sd-cards | |
 | Network switch with 4 ports | For example D-Link DGS-105 |
 | Power supply | For example a 60w 6 port charger |
 | 4 network cables | |
