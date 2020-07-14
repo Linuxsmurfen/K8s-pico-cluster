@@ -67,11 +67,13 @@ ssh-keygen
 ssh-copy-id localhost  
 ```
 
-Install  
-```ansible-playbook 1-routersetup.yml```  
-reboot
+Install    
+```ansible-playbook 1-routersetup.yml```
 
-Verify that the nodes gets an IP via DHCP
+Restart the nodes  
+```reboot```
+
+Verify that the nodes gets an IP via DHCP  
 ```cat /var/lib/misc/dnsmasq.leases```
 
 
@@ -91,12 +93,20 @@ Configure the nodes
 ```ansible-playbook 2-clustersetup.yml``` 
 
 Restart the nodes  
-reboot  
+```reboot```
 
 ## Kubernetes setup
-Time to setup the fun stuff.    
+Time to setup the fun stuff.  
 ```git clone https://github.com/rak8s/rak8s```  
-modify the ./inventory file  
+
+Modify the ```inventory``` file.  
+
+Verify connectivity  
+```ansible -m ping all```
+
+Deploy the kubernetes cluster  
+```ansible-playbook cluster.yml```
+
 
 ## Bill of materials
 
