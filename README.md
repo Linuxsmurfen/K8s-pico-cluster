@@ -15,22 +15,26 @@ All RPIs are connected to a isolated/dedicated switch that will handle the traff
 wifi --> A  --> C
           \ --> D
 ```
-| Node | Type | Hostname | Ethernet | Wifi
+| Node | Type | Hostname | Ethernet | Functions
 | --- | --- | --- | --- | --- |
-| A | rpi3 | router | 10.0.0.1 | DHCP |
+| A | rpi3 | router | 10.0.0.1 | Wifi, DNS, DHCP, (NFS, Loadbalancer) | 
 | B | rpi3 | master | 10.0.0.50 | |
 | C | rpi4 | worker4 | 10.0.0.60 | |
 | D | rpi2 | worker2 | 10.0.0.61 | |
 
 
 ## Prepare the sd-cards
+- Download the latest image  
+``` wget https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2020-12-04/2020-12-02-raspios-buster-armhf-lite.zip  ```  
+``` unzip 2020-12-02-raspios-buster-armhf-lite.zip ```
+
 - Create the sd cards  
-``` sudo dd bs=4M if=2020-05-27-raspios-buster-lite-armhf.img of=/dev/sdXX status=progress conv=fsync ```
+``` sudo dd bs=4M if=2020-12-02-raspios-buster-lite-armhf.img of=/dev/sdXX status=progress conv=fsync ```
 
 - Enable ssh  
 ``` touch  ../boot/ssh ```
    
-- Enable wifi access on the 'router' node  
+- Enable wifi access only on the 'router' node  
 ``` ../boot/wpa_supplicant.conf ```  
 
 ```
@@ -46,9 +50,10 @@ network={
    
 ## Router node setup
 
+Boot up the router node  
+
 Logon to the router node as user 'pi' and install Ansible and Git
 ```
-sudo apt-get update  
 sudo apt install ansible git  
 ``` 
 
@@ -67,18 +72,18 @@ ssh-keygen
 ssh-copy-id localhost  
 ```
 
-Install    
+Configure the router node   
 ```ansible-playbook 1-routersetup.yml```
 
-Restart the nodes  
+Restart the router node  
 ```reboot```
+
+
+## Cluster node setup  
+Boot the master and worker nodes  
 
 Verify that the nodes gets an IP via DHCP  
 ```cat /var/lib/misc/dnsmasq.leases```
-
-
-
-## Cluster node setup
 
 Copy the ssh keys to the cluster nodes  
 ```
@@ -86,6 +91,7 @@ ssh-copy-id pi@10.0.0.50
 ssh-copy-id pi@10.0.0.60
 ssh-copy-id pi@10.0.0.61
 ```  
+
 Verify connectivity  
 ```ansible cluster -m ping```
 
