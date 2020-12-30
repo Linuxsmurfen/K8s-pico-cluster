@@ -79,6 +79,10 @@
     out_interface: wlan0
     jump: ACCEPT
 
+# Update iptables
+# Allow api calls to master node on port 6443
+# iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 6443 -j DNAT --to-destination 10.0.0.50:6443
+
 
 # Iptables persistant
 - name: Prevent the iptables-peristent install dialog
